@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fake Account Detection - Dashboard Mockup</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body class="dark">
+  <div class="stage" id="stage">
+    <div class="header">
+      <div class="logo">FA</div>
+      <div>
+        <div class="title">Fake Account Detection Dashboard</div>
+        <div class="subtitle">AI-powered analysis</div>
+      </div>
+      <div style="flex:1"></div>
+      <button class="btn theme-toggle" onclick="toggleTheme()">🌙 Toggle Theme</button>
+      <div class="small" style="margin-left:8px;">v1.0</div>
+    </div>
+
+    <div class="layout">
+      <div class="sidebar card">
+        <div class="nav-item active">🏠 Overview</div>
+        <div class="nav-item">🔍 Accounts</div>
+        <div class="nav-item">📈 Reports</div>
+        <div class="nav-item">⚙️ Settings</div>
+        <div style="height:18px"></div>
+        <div class="small">Last sync: 2 hours ago</div>
+      </div>
+
+      <div class="main">
+        <div class="top-row">
+          <div class="card input-card">
+            <div style="font-weight:700; margin-bottom:8px;">Account Input</div>
+            <div style="display:flex; gap:8px;">
+              <input type="text" id="accName" placeholder="Enter username or profile link" />
+              <button class="btn" onclick="simulatePrediction()">Analyze</button>
+            </div>
+            <div style="margin-top:10px;" class="small">Or upload CSV for bulk analysis (mockup)</div>
+          </div>
+
+          <div class="card predict-card">
+            <div style="font-size:13px;color:#9aa1ab">Prediction</div>
+            <div id="flag" class="predict-flag genuine">Genuine ✅</div>
+            <div class="small">Confidence: <span id="conf">92%</span></div>
+          </div>
+
+          <div class="card" style="flex:1">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div style="font-weight:700">Quick Stats</div>
+              <div class="small">Last 7 days</div>
+            </div>
+            <div style="display:flex; gap:12px; margin-top:12px;">
+              <div style="flex:1; padding:8px; border-radius:8px; background:rgba(255,255,255,0.02); text-align:center;">
+                <div style="font-size:22px; font-weight:700;" id="profilesAnalyzed">1,240</div>
+                <div class="small">Profiles analyzed</div>
+              </div>
+              <div style="flex:1; padding:8px; border-radius:8px; background:rgba(255,255,255,0.02); text-align:center;">
+                <div style="font-size:22px; font-weight:700;" id="profilesFake">87</div>
+                <div class="small"> flagged fake</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="charts">
+          <div class="card chart-card">
+            <div style="font-weight:700">Posting Frequency</div>
+            <canvas id="chart1"></canvas>
+          </div>
+          <div class="card chart-card">
+            <div style="font-weight:700">Follower / Following Ratio</div>
+            <canvas id="chart2"></canvas>
+          </div>
+          <div class="card chart-card">
+            <div style="font-weight:700">Activity Heatmap (mockup)</div>
+            <div style="flex:1; display:flex; align-items:center; justify-content:center; color:#9aa1ab;">[Heatmap placeholder]</div>
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="small">© Project: Social Media Fake Account Detection</div>
+          <div style="display:flex; gap:8px;">
+            <button class="btn" onclick="resetMock()">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
